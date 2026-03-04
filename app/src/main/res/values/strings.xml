@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">NoteBook</string>
+
+    <string-array name="notes_filter_options">
+        <item>全部</item>
+        <item>原始笔记</item>
+        <item>最终笔记</item>
+    </string-array>
+
+    <string-array name="notes_sort_options">
+        <item>按更新时间（最新优先）</item>
+        <item>按更新时间（最早优先）</item>
+        <item>按名称（A-Z）</item>
+        <item>按名称（Z-A）</item>
+    </string-array>
+
+    <string-array name="ai_kb_options">
+        <item>线性代数课程库</item>
+        <item>概率统计课程库</item>
+        <item>机器学习导论课程库</item>
+    </string-array>
+
+    <string-array name="ai_template_options">
+        <item>简约课堂</item>
+        <item>讲义风格</item>
+        <item>冲刺复习</item>
+    </string-array>
+</resources>

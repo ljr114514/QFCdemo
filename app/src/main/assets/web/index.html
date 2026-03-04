@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>NoteBook 智能笔记</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <div class="shell">
+    <header class="topbar panel">
+      <div>
+        <p class="eyebrow">Notebook Studio</p>
+        <h1>AI 智能学习笔记工作台</h1>
+        <p class="subtitle">Web 嵌入版 · 浅色现代风 · 支持上下滑动与多页面切换</p>
+      </div>
+      <div class="top-actions">
+        <span id="today" class="date-pill"></span>
+        <button class="ghost" data-route="settings">主题设置</button>
+      </div>
+    </header>
+
+    <main id="view" class="view route-enter"></main>
+
+    <nav class="tabbar panel">
+      <button class="tab active" data-route="home">首页</button>
+      <button class="tab" data-route="ingest">导入</button>
+      <button class="tab" data-route="library">知识库</button>
+      <button class="tab" data-route="qa">问答</button>
+      <button class="tab" data-route="typeset">排版</button>
+    </nav>
+
+    <button id="toTop" class="to-top" aria-label="回到顶部">回顶</button>
+  </div>
+
+  <template id="tpl-home">
+    <section class="hero panel reveal">
+      <div>
+        <p class="chip">今日专注</p>
+        <h2>把课堂资料一键整理成可打印的高质量讲义</h2>
+        <p>上传 PDF、板书照片或 PPT，自动识别并结构化为 Markdown，结合 AI 补充后导出 Typst PDF。</p>
+      </div>
+      <div class="hero-actions">
+        <button class="primary" data-route="ingest">开始导入</button>
+        <button class="ghost" data-route="qa">立即提问</button>
+      </div>
+    </section>
+
+    <section class="grid two reveal delay-1">
+      <article class="card panel">
+        <h3>本周效率</h3>
+        <div class="stats">
+          <div><strong data-count="19">0</strong><span>篇已完成笔记</span></div>
+          <div><strong data-count="64" data-suffix="%">0</strong><span>节省整理时间</span></div>
+          <div><strong data-count="98" data-suffix="%">0</strong><span>OCR 可读率</span></div>
+        </div>
+      </article>
+      <article class="card panel">
+        <h3>推荐流程</h3>
+        <ol>
+          <li>导入教材 / PPT / 板书照片</li>
+          <li>执行 AI 补充与来源引用</li>
+          <li>选择模板导出 Typst PDF</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="timeline panel reveal delay-2">
+      <h3>最近任务</h3>
+      <div class="timeline-item"><span>09:30</span><p>离散数学第五章已完成 OCR 与结构整理</p></div>
+      <div class="timeline-item"><span>11:20</span><p>新增 14 条补充内容并附页码引用</p></div>
+      <div class="timeline-item"><span>14:10</span><p>讲义模板 A4 版本已导出</p></div>
+      <button class="ghost" data-route="typeset">打开导出中心</button>
+    </section>
+  </template>
+
+  <template id="tpl-ingest">
+    <section class="panel reveal">
+      <h2>导入中心</h2>
+      <p>当前为界面原型演示，按钮不触发真实上传，仅展示交互与排版效果。</p>
+      <div class="grid three">
+        <button class="tile">上传 PDF<small>支持页码区间识别</small></button>
+        <button class="tile">拍照板书<small>自动矫正与去阴影</small></button>
+        <button class="tile">导入 PPT<small>自动切片与标题识别</small></button>
+      </div>
+      <div class="inline-actions">
+        <button class="ghost" data-route="ocr">查看 OCR 结果</button>
+        <button class="ghost" data-route="home">返回首页</button>
+      </div>
+    </section>
+
+    <section class="panel reveal delay-1">
+      <h3>导入队列</h3>
+      <div class="queue-row"><b>高等代数课堂笔记.pdf</b><span>完成 100%</span></div>
+      <div class="queue-row"><b>概率统计板书照片.zip</b><span>解析中 72%</span></div>
+      <div class="queue-row"><b>机器学习导论.pptx</b><span>等待中</span></div>
+    </section>
+  </template>
+
+  <template id="tpl-ocr">
+    <section class="panel reveal">
+      <h2>OCR 结构化结果</h2>
+      <p>检测到标题 18 个、段落 86 条、图像 12 张、表格 5 个，章节层级已自动对齐。</p>
+      <pre class="code"># 第三章 线性变换
+
+## 3.1 特征值
+定义 ...
+
+## 3.2 对角化条件
+- 充要条件
+- 证明思路
+- 常见误区</pre>
+      <div class="inline-actions">
+        <button class="primary" data-route="library">接入知识库补充</button>
+        <button class="ghost" data-route="typeset">前往排版中心</button>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-library">
+    <section class="panel reveal">
+      <h2>课程知识库</h2>
+      <p>本地 RAG 索引可用于补充、纠错、问答，并且支持来源追溯。</p>
+      <div class="kb-grid">
+        <div class="kb-card"><h4>数据结构</h4><p>242 个分块 · 2 小时前更新</p></div>
+        <div class="kb-card"><h4>线性代数</h4><p>318 个分块 · 1 天前更新</p></div>
+        <div class="kb-card"><h4>概率统计</h4><p>204 个分块 · 4 小时前更新</p></div>
+        <div class="kb-card"><h4>机器学习导论</h4><p>362 个分块 · 3 天前更新</p></div>
+      </div>
+      <button class="primary" data-route="qa">基于知识库提问</button>
+    </section>
+
+    <section class="panel reveal delay-1">
+      <h3>引用格式示例</h3>
+      <p class="quote">[概率统计教材，第 4 章，第 87 页] 协方差矩阵满足 x^T Σ x >= 0。</p>
+    </section>
+  </template>
+
+  <template id="tpl-qa">
+    <section class="panel reveal">
+      <h2>笔记问答</h2>
+      <div class="qa-block">
+        <p class="q">问：为什么协方差矩阵一定是半正定？</p>
+        <p class="a">答：对任意向量 x，令 y = x^T X，则 Var(y) = x^T Σ x，而方差恒非负，因此 Σ 为半正定。</p>
+        <small>来源：概率统计教材第 4 章第 87 页，课堂讲义 2.3 节</small>
+      </div>
+      <div class="inline-actions">
+        <button class="ghost" data-route="library">查看来源</button>
+        <button class="primary" data-route="typeset">插入并排版</button>
+      </div>
+    </section>
+
+    <section class="panel reveal delay-1">
+      <h3>追问建议</h3>
+      <div class="chips">
+        <button class="chip-btn">补充几何直觉</button>
+        <button class="chip-btn">生成考试题型</button>
+        <button class="chip-btn">展开证明步骤</button>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-typeset">
+    <section class="panel reveal">
+      <h2>Typst 排版中心</h2>
+      <p>选择视觉模板后，一键导出高质量 PDF，并保持统一的文档风格。</p>
+      <div class="grid three">
+        <button class="tile">简约课堂<small>清爽留白</small></button>
+        <button class="tile">讲义风格<small>重点更突出</small></button>
+        <button class="tile">冲刺复习<small>信息更密集</small></button>
+      </div>
+      <section class="preview panel nested">
+        <h3>预览片段</h3>
+        <p>3.2 对角化条件</p>
+        <p class="muted">若矩阵 A 具有 n 个线性无关特征向量，则 A 可对角化...</p>
+      </section>
+      <button class="primary" data-route="home">完成并返回首页</button>
+    </section>
+  </template>
+
+  <template id="tpl-settings">
+    <section class="panel reveal">
+      <h2>主题预设</h2>
+      <p>选择你喜欢的浅色风格，实时调整全局视觉效果。</p>
+      <div class="theme-palette">
+        <button class="theme-btn" data-theme="sky">天空玻璃</button>
+        <button class="theme-btn" data-theme="mint">薄荷纸感</button>
+        <button class="theme-btn" data-theme="sand">暖白象牙</button>
+      </div>
+
+      <div class="form-grid">
+        <label>强调色<input id="accentPicker" type="color" value="#2f61ff" /></label>
+        <label>标题字号<input id="headingScale" type="range" min="18" max="34" value="26" /></label>
+      </div>
+      <button class="ghost" data-route="home">保存并返回</button>
+    </section>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

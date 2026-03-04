@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.NoteBook" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sky_primary</item>
+        <item name="colorOnPrimary">@color/sky_on_primary</item>
+        <item name="colorPrimaryContainer">@color/sky_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/sky_on_primary_container</item>
+
+        <item name="colorSecondary">@color/sky_secondary</item>
+        <item name="colorOnSecondary">@color/sky_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/sky_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/sky_on_secondary_container</item>
+
+        <item name="colorTertiary">@color/sky_tertiary</item>
+        <item name="colorOnTertiary">@color/sky_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/sky_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/sky_on_tertiary_container</item>
+
+        <item name="colorSurface">@color/sky_surface</item>
+        <item name="colorSurfaceVariant">@color/sky_surface_variant</item>
+        <item name="colorOnSurface">@color/sky_on_surface</item>
+        <item name="colorOutline">@color/sky_outline</item>
+    </style>
+
+    <style name="Theme.NoteBook" parent="Base.Theme.NoteBook" />
+
+    <style name="Widget.NoteBook.Button.TextCompact" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+</resources>

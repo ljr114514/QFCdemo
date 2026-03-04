@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Global sky-blue palette for Material 3 components -->
+    <color name="sky_primary">#3A78D4</color>
+    <color name="sky_on_primary">#FFFFFFFF</color>
+    <color name="sky_primary_container">#DCEBFF</color>
+    <color name="sky_on_primary_container">#123869</color>
+
+    <color name="sky_secondary">#5B7FB3</color>
+    <color name="sky_on_secondary">#FFFFFFFF</color>
+    <color name="sky_secondary_container">#E5EEFF</color>
+    <color name="sky_on_secondary_container">#1F3A60</color>
+
+    <color name="sky_tertiary">#2F9AB7</color>
+    <color name="sky_on_tertiary">#FFFFFFFF</color>
+    <color name="sky_tertiary_container">#DDF5FF</color>
+    <color name="sky_on_tertiary_container">#0D3F4D</color>
+
+    <color name="sky_surface">#F7FBFF</color>
+    <color name="sky_surface_variant">#E8F2FF</color>
+    <color name="sky_on_surface">#17203A</color>
+    <color name="sky_outline">#C7D9F4</color>
+
+    <color name="nav_active">#3A78D4</color>
+    <color name="nav_inactive">#7A95BC</color>
+</resources>
